@@ -36,9 +36,9 @@
             return new Employee(emp.LastName, emp.Salary + inc);
         }
 
-        public static Employee operator -(Employee emp, double inc)
+        public static Employee operator -(Employee emp, double dec)
         {
-            return new Employee(emp.LastName, emp.Salary - inc);
+            return new Employee(emp.LastName, emp.Salary - dec);
         }
 
         public static bool operator ==(Employee emp1, Employee emp2)
