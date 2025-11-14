@@ -16,7 +16,7 @@ namespace Homework4
             private set
             {
                 if (value <= 0)
-                    throw new InvalidDataException("No more funds on credit card.");
+                    throw new InvalidDataException("Not enough funds on the credit card.");
                 balance = value;
             }
         }
@@ -42,20 +42,45 @@ namespace Homework4
             }
         }
 
-        public CreditCard(long balance, string cvv)
+        private string cardNumber;
+        public string CardNumber
         {
-            Balance = balance;
+            get { return cardNumber; }
+
+            private set
+            {
+                // Регулярний вираз:
+                // ^ - початок рядка
+                // \d{16} - рівно 16 цифр
+                // $ - кінець рядка
+                string pattern = @"^\d{16}$";
+
+                if (value != null && Regex.IsMatch(value, pattern))
+                {
+                    cardNumber = value;
+                }
+                else
+                {
+                    throw new InvalidDataException("Card number must consist of 16 numbers.");
+                }
+            }
+        }
+
+        public CreditCard(string cardNumber, string cvv, long balance)
+        {
+            CardNumber = cardNumber;
             CVV = cvv;
+            Balance = balance;
         }
 
         public static CreditCard operator +(CreditCard card, long inc)
         {
-            return new CreditCard(card.Balance + inc, card.CVV);
+            return new CreditCard(card.CardNumber, card.CVV, card.Balance + inc);
         }
 
         public static CreditCard operator -(CreditCard card, long dec)
         {
-            return new CreditCard(card.Balance - dec, card.CVV);
+            return new CreditCard(card.CardNumber, card.CVV, card.Balance - dec);
         }
 
         public static bool operator ==(CreditCard card1, CreditCard card2)
