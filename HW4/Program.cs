@@ -64,34 +64,114 @@ namespace Homework4
             //Console.WriteLine("-------------");
 
             //Task 3
-            CreditCard card1 = new CreditCard("5168757385595626", "225", 10_000);
-            CreditCard card1AfterInc = card1 + 1125;
-            Console.WriteLine("{0} is on {1} card balance.", card1AfterInc.Balance, card1AfterInc.CardNumber);
+            //CreditCard card1 = new CreditCard("5168757385595626", "225", 10_000);
+            //CreditCard card1AfterInc = card1 + 1125;
+            //Console.WriteLine("{0} is on {1} card balance.", card1AfterInc.Balance, card1AfterInc.CardNumber);
 
-            // Кредитна карта, яка відрізняється від попередньої на останню цифру імені
-            CreditCard card2 = new CreditCard("5168757385595627", "337", 12_000);
-            CreditCard card2AfterDec = card2 - 2000;
-            Console.WriteLine("{0} is on {1} card balance.", card2AfterDec.Balance, card2AfterDec.CardNumber);
+            //// Кредитна карта, яка відрізняється від попередньої на останню цифру імені
+            //CreditCard card2 = new CreditCard("5168757385595627", "337", 12_000);
+            //CreditCard card2AfterDec = card2 - 2000;
+            //Console.WriteLine("{0} is on {1} card balance.", card2AfterDec.Balance, card2AfterDec.CardNumber);
 
-            if (card1 == card2)
-                Console.WriteLine("{0} and {1} credit cards are identical.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+            //if (card1 == card2)
+            //    Console.WriteLine("{0} and {1} credit cards are identical.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+            //else
+            //    Console.WriteLine("{0} and {1} credit cards are different.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+
+            //if (card1 != card2)
+            //    Console.WriteLine("{0} and {1} credit cards have different CVV-codes.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+            //else
+            //    Console.WriteLine("{0} and {1} credit cards have identical CVV-codes", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+
+            //if (card1 > card2)
+            //    Console.WriteLine("Card {0} has more money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+            //else
+            //    Console.WriteLine("Card {0} don't have more money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+
+            //if (card1 < card2)
+            //    Console.WriteLine("Card {0} has less money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+            //else
+            //    Console.WriteLine("Card {0} has not less money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+
+            //Task 4
+            Matrix mtrx1 = new Matrix(4, 4, true);
+            Console.WriteLine("Adding matrix1 and matrix2");
+            Console.WriteLine("matrix1:");
+            for (int i = 0; i < mtrx1.RowNumber; i++)
+            {
+                for (int j = 0; j < mtrx1.ColumnNumber; j++)
+                {
+                    Console.Write(mtrx1[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            Matrix mtrx2 = new Matrix(4, 4, true);
+            Console.WriteLine("matrix2:");
+            for (int i = 0; i < mtrx2.RowNumber; i++)
+            {
+                for (int j = 0; j < mtrx2.ColumnNumber; j++)
+                {
+                    Console.Write(mtrx2[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            Matrix added = mtrx1 + mtrx2;
+            Console.WriteLine("Sum:");
+            for (int i = 0; i < added.RowNumber; i++)
+            {
+                for (int j = 0; j < added.ColumnNumber; j++)
+                {
+                    Console.Write(added[i,j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            Matrix subtructed = mtrx1 - mtrx2;
+            Console.WriteLine("Difference:");
+            for (int i = 0; i < subtructed.RowNumber; i++)
+            {
+                for (int j = 0; j < subtructed.ColumnNumber; j++)
+                {
+                    Console.Write(subtructed[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            int scalar = 2;
+            Matrix multipliedByScalar = mtrx1 * scalar;
+            Console.WriteLine("matrix1 multiplied by {0}:", scalar);
+            for (int i = 0; i < multipliedByScalar.RowNumber; i++)
+            {
+                for (int j = 0; j < multipliedByScalar.ColumnNumber; j++)
+                {
+                    Console.Write(multipliedByScalar[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            Matrix product = mtrx1 * mtrx2;
+            Console.WriteLine("Product of matrix1 and matrix2 is:");
+            // Перевірено за допомогою калькулятора
+            for (int i = 0; i < product.RowNumber; i++)
+            {
+                for (int j = 0; j < product.ColumnNumber; j++)
+                {
+                    Console.Write(product[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            if (mtrx1 == mtrx2)
+                Console.WriteLine("Matrices 1 and 2 are equal.");
             else
-                Console.WriteLine("{0} and {1} credit cards are different.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+                Console.WriteLine("Matrices 1 and 2 are not equal.");
 
-            if (card1 != card2)
-                Console.WriteLine("{0} and {1} credit cards have different CVV-codes.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+            if (mtrx1 != mtrx2)
+                Console.WriteLine("Matrices 1 and 2 are not equal.");
             else
-                Console.WriteLine("{0} and {1} credit cards have identical CVV-codes", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
-
-            if (card1 > card2)
-                Console.WriteLine("Card {0} has more money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
-            else
-                Console.WriteLine("Card {0} don't have more money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
-
-            if (card1 < card2)
-                Console.WriteLine("Card {0} has less money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
-            else
-                Console.WriteLine("Card {0} has not less money on the balance than {1} card.", card1AfterInc.CardNumber, card2AfterDec.CardNumber);
+                Console.WriteLine("Matrices 1 and 2 are equal.");
         }
     }
 }
